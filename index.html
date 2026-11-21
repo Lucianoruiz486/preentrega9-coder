@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre-Entrega 9 - Validador de Stock</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/main.js" defer></script>
+</head>
+<body>
+    <header class="encabezado">
+        <h1>Validador de Stock</h1>
+        <p>Negocio de indumentaria deportiva</p>
+    </header>
+
+    <main>
+        <!-- Feedback visual: acá se muestran los mensajes de cada acción -->
+        <div id="mensaje" class="mensaje oculto" role="status"></div>
+
+        <!-- Recordatorio que aparece unos segundos después de entrar (setTimeout) -->
+        <div id="aviso" class="aviso oculto">
+            <span id="aviso-texto"></span>
+            <button type="button" id="btn-cerrar-aviso" class="btn btn--secundario">Cerrar</button>
+        </div>
+
+        <!-- Resumen del inventario (se actualiza solo) -->
+        <section class="resumen">
+            <div class="stat"><span class="stat__valor" id="stat-productos">0</span><span class="stat__texto">Productos</span></div>
+            <div class="stat"><span class="stat__valor" id="stat-unidades">0</span><span class="stat__texto">Unidades en stock</span></div>
+            <div class="stat"><span class="stat__valor" id="stat-valor">$0</span><span class="stat__texto">Valor del inventario</span></div>
+            <div class="stat"><span class="stat__valor" id="stat-agotados">0</span><span class="stat__texto">Agotados</span></div>
+        </section>
+
+        <section class="panel">
+            <h2>Agregar producto</h2>
+            <div class="formulario">
+                <input type="text" id="input-nombre" placeholder="Nombre del producto">
+                <input type="number" id="input-precio" placeholder="Precio" min="1">
+                <input type="number" id="input-stock" placeholder="Stock inicial" min="0">
+                <button type="button" id="btn-agregar" class="btn btn--primario">+ Agregar</button>
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2>Catálogo</h2>
+            <div class="filtros">
+                <input type="text" id="input-buscar" placeholder="Buscar producto (Esc para limpiar)">
+                <label><input type="checkbox" id="check-disponibles"> Solo con stock</label>
+                <button type="button" id="btn-recargar" class="btn btn--primario">Recargar catálogo</button>
+                <label><input type="checkbox" id="check-falla"> Simular falla de carga</label>
+                <button type="button" id="btn-restablecer" class="btn btn--secundario">Restablecer catálogo</button>
+                <button type="button" id="btn-vaciar" class="btn btn--peligro">Vaciar catálogo</button>
+            </div>
+            <!-- Contenedor vacío: main.js dibuja acá las tarjetas -->
+            <div id="contenedor-productos" class="grilla"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Pre-Entrega 9 - Módulo 9 - Curso de JavaScript</p>
+    </footer>
+</body>
+</html>
